@@ -1,5 +1,15 @@
 /** @type {import('next').NextConfig} */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const path = require('path');
+
 const nextConfig = {
+  // ------------------
+  webpack: (config) => {
+    // Prevent problems with hooks in collabocate library, by resolving to web app's react
+    config.resolve.alias['react'] = path.resolve('./node_modules/react');
+    return config;
+  },
+  // ------------------
   async redirects() {
     return [
       {
