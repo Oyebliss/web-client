@@ -1,28 +1,7 @@
-import { apiClient } from './apiClient';
-
-// Define types for user-related API responses
-interface UserProperties {
-  email: string;
-  name: string;
-  role: string;
-  password: string;
-}
-
-interface User {
-  id: string;
-  email: string;
-  name: string;
-  role: string;
-}
+import { apiClient } from './api-client';
+import { UpdatePropertiesResponse, UserListResponse, UserProperties } from './types/user.types';
 
 
-interface UpdatePropertiesResponse {
-  message: string;
-}
-
-interface UserListResponse {
-  users: User[];
-}
 
 
 // Get all users (admin action)

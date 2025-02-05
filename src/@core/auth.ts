@@ -1,21 +1,8 @@
-import { apiClient } from './apiClient';
+import { apiClient } from './api-client';
+import { AuthResponse } from './types/auth.types';
 
 // Save token locally
 const saveAuthToken = (token: string): void => localStorage.setItem('authToken', token);
-
-// Define types for the response structure
-export interface AuthResponse {
-  success: boolean;
-  data: {
-    token: string;
-    user: {
-      id: string;
-      email: string;
-      name: string;
-    };
-  };
-  message: string;
-}
 
 // Signup request
 export const signUp = async (email: string, password: string): Promise<AuthResponse> => {
