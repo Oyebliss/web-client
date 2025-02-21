@@ -1,7 +1,7 @@
 const API_BASE_URL = process.env.NEXT_PUBLIC_BACKEND_API_URL;
 
 // Custom fetch API client
-export const apiClient = async <T>(url: string, options: RequestInit = {}): Promise<T> => {
+export const apiClient = async <T>(endpoint: string, options: RequestInit = {}): Promise<T> => {
   const token = typeof window !== 'undefined' ? localStorage.getItem('authToken') : ''; // Get token from localStorage
 
   const headers: HeadersInit = {
@@ -10,7 +10,7 @@ export const apiClient = async <T>(url: string, options: RequestInit = {}): Prom
     ...options.headers,
   };
 
-  const response = await fetch(`${API_BASE_URL}${url}`, {
+  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
     ...options,
     headers,
   });
