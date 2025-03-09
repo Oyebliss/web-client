@@ -3,6 +3,7 @@ import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 
 import '@/@layout_shared/styles/imports.css';
+import '@/@layout_community/components/auth/auth.blocks.css';
 
 export type NextPageWithLayout<P = object, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;

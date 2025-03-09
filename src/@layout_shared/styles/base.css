@@ -20,4 +20,6 @@ img {
 
 button {
   cursor: pointer;
+  background: transparent;
+  vertical-align: top;
 }

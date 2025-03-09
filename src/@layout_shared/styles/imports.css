@@ -1,6 +1,9 @@
 /* APP-WIDE */
 /* Shared Styles import */
 
+/* Fonts */
+@import "./fonts/font.css";
+
 /* Variables */
 @import "./var/colors.css";
 @import "./var/spacing.css";
