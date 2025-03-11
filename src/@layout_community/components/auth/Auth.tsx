@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { AuthContainer_Community } from '@/@layout_community/hooks/useAuth';
 import { text } from './auth.helpers';
 import { emptyString, stringSpace } from '@/@layout_shared/helpers/general.helpers';
@@ -24,11 +25,13 @@ export default function Auth_Community() {
               <input type="password" name="name_confirm_password" id="inputconfirm__password" placeholder="Confirm password"/>
             </div>
           </>}
-          <button className="auto-margin wrap_3_sibling_group separator-margin_ttb" type="submit">{isLogin && text.login} {isSignup && text.signup} with Google</button>
+          <button className="auto-margin wrap_3_sibling_group separator-margin_ttb" type="submit">{isLogin && text.login} {isSignup && text.signup}</button>
         </form>
         <hr className="auto-margin wrap_3" />
+        <button className="auto-margin wrap_3 separator-margin_ttb" type="submit">{isLogin && text.login} {isSignup && text.signup} with Google</button>
+        <hr className="auto-margin wrap_3" />
         <p className="auto-margin wrap_3 center_text">
-          {isLogin ? 'Don\'t ' : 'Already '} have an account? <a href={isLogin ? `/${text.signup.replace(stringSpace, emptyString).toLowerCase()}` : `/${text.login.replace(stringSpace, emptyString).toLowerCase()}`}>{isLogin ? text.signup : text.login} here</a>
+          {isLogin ? 'Don\'t ' : 'Already '} have an account? <Link href={isLogin ? `/${text.signup.replace(stringSpace, emptyString).toLowerCase()}` : `/${text.login.replace(stringSpace, emptyString).toLowerCase()}`}>{isLogin ? text.signup : text.login} here</Link>
         </p>
       </div>
     </div>
