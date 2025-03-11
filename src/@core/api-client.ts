@@ -17,7 +17,7 @@ export const apiClient = async <T>(endpoint: string, options: RequestInit = {}):
 
   if (!response.ok) {
     const errorData = await response.json();
-    throw new Error(errorData.message || 'Something went wrong');
+    throw new Error(errorData?.error?.message || errorData?.message || 'Something went wrong');
   }
 
   // Type casting to ensure that response data is in the expected format

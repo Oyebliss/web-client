@@ -10,4 +10,5 @@ export interface AuthResponse {
     };
   };
   message: string;
+  error: { status: number; message: string };
 }

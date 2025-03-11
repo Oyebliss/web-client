@@ -96,6 +96,14 @@ button.wrap_3_sibling_group.separator-margin_ttb {
     margin-top: 30px;
 }
 
+.error_message {
+    color: red; /*-- For setup purpose. this will change based on error UI on design -- */
+}
+
+.success_message {
+    color: green; /*-- For setup purpose. this will change based on success message UI on design -- */
+}
+
 /* ------------- */
 
 @media screen and (min-width: 501px) {

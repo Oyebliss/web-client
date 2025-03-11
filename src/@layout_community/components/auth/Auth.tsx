@@ -4,13 +4,28 @@ import { text } from './auth.helpers';
 import { emptyString, stringSpace } from '@/@layout_shared/helpers/general.helpers';
 
 export default function Auth_Community() {
-  const { isLogin, isSignup } = AuthContainer_Community.useContainer();
+  const { isLogin, isSignup, handleAuth, loading, error, message } = AuthContainer_Community.useContainer();
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const email = (e.currentTarget.elements.namedItem('name_email') as HTMLInputElement)?.value;
+    const password = (e.currentTarget.elements.namedItem('name_password') as HTMLInputElement)?.value;
+    const confirmPassword = isSignup
+      ? (e.currentTarget.elements.namedItem('name_confirm_password') as HTMLInputElement)?.value
+      : undefined;
+
+    handleAuth(email, password, confirmPassword);
+  };
 
   return (
     <div className="wrap_1">
       <div className="auto-margin wrap_2 separator-margin_ttb">
         <h2 className="auto-margin wrap_3">{isLogin && text.login.replace(stringSpace, emptyString)} {isSignup && text.signup.replace(stringSpace, emptyString)} Form</h2>
-        <form className="auto-margin wrap_3">
+        
+        {error && <p className="center_text error_message">{error}</p>} {/* Display error */}
+        {message && <p className="center_text success_message">{message}</p>} {/* Display Success Message on Successfull Signup */}
+        
+        <form className="auto-margin wrap_3" onSubmit={onSubmit}>
           <div className="auto-margin wrap_3_sibling_group">
             <label htmlFor="input_email">Email</label>
             <input type="email" name="name_email" id="input_email" placeholder="Enter email" />
@@ -25,7 +40,8 @@ export default function Auth_Community() {
               <input type="password" name="name_confirm_password" id="inputconfirm__password" placeholder="Confirm password"/>
             </div>
           </>}
-          <button className="auto-margin wrap_3_sibling_group separator-margin_ttb" type="submit">{isLogin && text.login} {isSignup && text.signup}</button>
+          <button className="auto-margin wrap_3_sibling_group separator-margin_ttb" type="submit">{loading ? 'Processing...' : isLogin ? text.login : text.signup}
+          </button>
         </form>
         <hr className="auto-margin wrap_3" />
         <button className="auto-margin wrap_3 separator-margin_ttb" type="submit">{isLogin && text.login} {isSignup && text.signup} with Google</button>
