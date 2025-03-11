@@ -1,0 +1,105 @@
+/* ------------- */
+
+.auto-margin {
+    margin: 0 auto;
+}
+
+.center_text {
+    text-align: center;
+}
+
+/* ------------- */
+
+.wrap_1 {
+    width: 100%;
+    font-family: "Open Sans", sans-serif;
+    color: #2d2d2d;
+}
+
+/* ------------- */
+
+.wrap_2 {
+    width: 90%;
+    padding: 35px 0;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+}
+
+.wrap_2.separator-margin_ttb {
+    margin-top: 40px;
+}
+
+/* ------------- */
+
+.wrap_3 {
+    width: 85%;
+    display: block;
+}
+
+hr.wrap_3 {
+    border-bottom: 1px solid #c0c0c0;;
+    margin: 20px auto 15px auto; /* why the special addition of auto here, before it gets centered? */
+}
+
+/* ------------- */
+
+
+.wrap_3_sibling_group {
+    display: block;
+    width: 100%;
+}
+
+.wrap_3_sibling_group > * {
+    width: 100%;
+    display: block;
+}
+
+.wrap_3_sibling_group > input {
+    border: 1px solid #717171;
+    border-radius: 3px;
+
+    font-size: 1em;
+    padding: 10px;
+}
+
+.wrap_3_sibling_group > label {
+    margin: 20px 0 5px 0;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+button.wrap_3,
+button.wrap_3_sibling_group {
+    border-radius: 5px;
+    padding: 15px 0;
+    font-size: 1em;
+}
+
+button.wrap_3 {
+    background: transparent;
+    color: #232323;
+    border: 1px solid #232323;
+}
+
+button.wrap_3.separator-margin_ttb {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+button.wrap_3_sibling_group {
+    background: #232323;
+    color: whitesmoke;
+    border: 1px solid transparent;
+}
+
+button.wrap_3_sibling_group.separator-margin_ttb {
+    margin-top: 30px;
+}
+
+/* ------------- */
+
+@media screen and (min-width: 501px) {
+    .wrap_2 {
+        width: 450px;
+    }
+}

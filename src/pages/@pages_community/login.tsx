@@ -2,6 +2,9 @@ import { NextPageWithLayout } from '@/pages/_app';
 import { getLayout_Community } from '@/@layout_community/Community_Layout';
 import { login, signUp } from '@/@core/auth';
 import { useEffect } from 'react';
+import Auth_Community from '@/@layout_community/components/auth/Auth';
+import { AuthContainer_Community } from '@/@layout_community/hooks/useAuth';
+import { text } from '@/@layout_community/components/auth/auth.helpers';
 
 const LoginPage_Community: NextPageWithLayout = () => {
   const testSignUp = async () => {
@@ -35,9 +38,9 @@ const LoginPage_Community: NextPageWithLayout = () => {
     testLogin();
   }, []);
   return (
-    <>
-      <p>Test Signup and Login Route</p>
-    </>
+    <AuthContainer_Community.Provider initialState={{ authType: text.login }}>
+      <Auth_Community></Auth_Community>
+    </AuthContainer_Community.Provider>
   );
 };
 
