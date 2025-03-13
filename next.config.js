@@ -38,17 +38,6 @@ const nextConfig = {
         destination: '/',
         permanent: false,
       },
-      {
-        source: '/overview',
-        has: [
-          {
-            type: 'host',
-            value: 'localhost',
-          },
-        ],
-        destination: 'http://app.localhost:3000',
-        permanent: false,
-      },
     ];
   },
 };

@@ -28,16 +28,16 @@ export default function Auth_Community() {
         <form className="auto-margin wrap_3" onSubmit={onSubmit}>
           <div className="auto-margin wrap_3_sibling_group">
             <label htmlFor="input_email">Email</label>
-            <input type="email" name="name_email" id="input_email" placeholder="Enter email" />
+            <input type="email" name="name_email" id="input_email" placeholder="Enter email" required />
           </div>
           <div className="auto-margin wrap_3_sibling_group">
             <label htmlFor="input_password">Password</label>
-            <input type="password" name="name_password" id="input_password" placeholder="Enter password"/>
+            <input type="password" name="name_password" id="input_password" placeholder="Enter password" required/>
           </div>
           {isSignup && <>
             <div className="auto-margin wrap_3_sibling_group">
               <label htmlFor="input_confirm_password">Confirm password</label>
-              <input type="password" name="name_confirm_password" id="inputconfirm__password" placeholder="Confirm password"/>
+              <input type="password" name="name_confirm_password" id="inputconfirm__password" placeholder="Confirm password" required/>
             </div>
           </>}
           <button className="auto-margin wrap_3_sibling_group separator-margin_ttb" type="submit">{loading ? 'Processing...' : isLogin ? text.login : text.signup}

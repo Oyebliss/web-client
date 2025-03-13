@@ -37,13 +37,6 @@ function useAuth_Community(intialState: { authType: string } | undefined) {
     setLoading(true);
     setError(null);
 
-    // ✅ Validation
-    if (!email || !password || (isSignup && !confirmPassword)) {
-      setError('All fields are required!');
-      setLoading(false);
-      return;
-    }
-
     if (isSignup && password !== confirmPassword) {
       setError('Passwords do not match!');
       setLoading(false);
@@ -72,7 +65,7 @@ function useAuth_Community(intialState: { authType: string } | undefined) {
       // ✅ Redirect User After Login
       if (!isSignup) {
         setTimeout(() => {
-          router.push('/overview'); // Redirect to App Manager Dashboard after 2secs - will be updated
+          router.push('http://app.localhost:3000/overview'); // Redirect to App Manager Dashboard after 2secs - will be updated
         }, 3000);
       }
     } catch (error: unknown) {
