@@ -25,3 +25,8 @@ export const login = async (email: string, password: string): Promise<AuthRespon
   saveAuthToken(response.data.token); // Save token after successful login
   return response;
 };
+
+export const signInWithGoogle = async () => {
+  const googleAuthUrl = `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/auth/google`;
+  window.location.href = googleAuthUrl; // Redirect user to Google Auth
+};
