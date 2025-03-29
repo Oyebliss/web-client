@@ -5,6 +5,7 @@ import { text } from '../components/auth/auth.helpers';
 import { login, signUp } from '@/@core/auth';
 import { useRouter } from 'next/navigation';
 import { setTimeout } from 'timers';
+import { checkAuth } from './checkAuth';
 
 function useAuth_Community(intialState: { authType: string } | undefined) {
   const [authType, setLoginText] = useState(intialState?.authType);
@@ -18,18 +19,8 @@ function useAuth_Community(intialState: { authType: string } | undefined) {
   const isSignup = authType === text.signup;
 
   useEffect(() => {
-    const checkAuth = () => {
-      const token = localStorage.getItem('authToken');
-      const user = sessionStorage.getItem('user');
-      setIsAuthenticated(!!token && !!user);
-    };
-
-    checkAuth();
-
-    // ✅ Listen for storage changes
-    window.addEventListener('storage', checkAuth);
-    
-    return () => window.removeEventListener('storage', checkAuth);
+    // ✅ Use checkAuth to determine authentication state
+    setIsAuthenticated(checkAuth());
   }, []);
 
 
@@ -50,22 +41,14 @@ function useAuth_Community(intialState: { authType: string } | undefined) {
         setMessage(response.message);
 
         router.push('/login');
-      } else {
-        response = await login(email, password);
-        setMessage(response.message);
       }
-
-      // ✅ Store Token and User Data
-      localStorage.setItem('authToken', response.data.token);
-      sessionStorage.setItem('user', JSON.stringify(response.data.user));
-
-      setIsAuthenticated(true);
-
-
       // ✅ Redirect User After Login
       if (!isSignup) {
+        response = await login(email, password);
+        setMessage(response.message);
+
         setTimeout(() => {
-          router.push('http://app.localhost:3000/overview'); // Redirect to App Manager Dashboard after 2secs - will be updated
+          router.replace('/overview'); // Redirect to App Manager Dashboard after 2secs - will be updated
         }, 3000);
       }
     } catch (error: unknown) {

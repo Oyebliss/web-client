@@ -1,5 +1,5 @@
 import { apiClient } from './api-client';
-import { UpdatePropertiesResponse, UserListResponse, UserProperties } from './types/user.types';
+import { GetUserResponse, UpdatePropertiesResponse, UserListResponse, UserProperties } from './types/user.types';
 
 
 
@@ -12,8 +12,8 @@ export const getAllUsers = async (): Promise<UserListResponse> => {
 };
 
 // Get user properties (requires authorization)
-export const getUserProperties = async (): Promise<UserProperties> => {
-  return await apiClient<UserProperties>('/user/get-properties', {
+export const getUserProperties = async (): Promise<GetUserResponse> => {
+  return await apiClient<GetUserResponse>('/user/get-properties', {
     method: 'GET',
   });
 };

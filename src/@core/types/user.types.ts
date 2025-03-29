@@ -1,9 +1,18 @@
 // Define types for user-related API responses
 export interface UserProperties {
+  _id: string;
   email: string;
-  name: string;
+  email_verified: boolean;
   role: string;
-  password: string;
+  instances: unknown[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface GetUserResponse {
+  success: boolean;
+  data: UserProperties;
+  message: string;
 }
 
 export interface User {
