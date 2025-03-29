@@ -15,6 +15,10 @@ const GoogleCallback = () => {
         const { token, user } = parsedResponse.data;
 
         if (token && user) {
+          // ✅ Store token and user in localStorage
+          localStorage.setItem('authToken', token);
+          localStorage.setItem('user', JSON.stringify(user));
+          
           // ✅ Redirect to subdomain
           router.replace('/overview');
         }
