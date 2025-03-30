@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { AuthContainer_Community } from '@/@layout_community/hooks/useAuth';
+import { AuthContainer_Community } from '@/@layout_app/hooks/useAuth';
 import { text } from './auth.helpers';
 import { emptyString, stringSpace } from '@/@layout_shared/helpers/general.helpers';
 

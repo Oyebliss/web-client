@@ -1,7 +1,7 @@
 import { NextPageWithLayout } from '@/pages/_app';
 import { getLayout_App } from '@/@layout_app/App_Layout';
-import { UserContainer_Community } from '@/@layout_community/hooks/useUser';
-import { AuthContainer_Community } from '@/@layout_community/hooks/useAuth';
+import { UserContainer_Community } from '@/@layout_app/hooks/useUser';
+import { AuthContainer_Community } from '@/@layout_app/hooks/useAuth';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 

@@ -1,8 +1,8 @@
 import { NextPageWithLayout } from '@/pages/_app';
 import { getLayout_Community } from '@/@layout_community/Community_Layout';
-import Auth_Community from '@/@layout_community/components/auth/Auth';
-import { AuthContainer_Community } from '@/@layout_community/hooks/useAuth';
-import { text } from '@/@layout_community/components/auth/auth.helpers';
+import Auth_Community from '@/@layout_app/components/auth/Auth';
+import { AuthContainer_Community } from '@/@layout_app/hooks/useAuth';
+import { text } from '@/@layout_app/components/auth/auth.helpers';
 
 const SignupPage_Community: NextPageWithLayout = () => {
   return (

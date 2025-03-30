@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from 'react';
 import { createContainer } from 'unstated-next';
-import { text } from '../components/auth/auth.helpers';
+import { text } from '../../@layout_app/components/auth/auth.helpers';
 import { login, signUp } from '@/@core/auth';
 import { useRouter } from 'next/navigation';
 import { setTimeout } from 'timers';
