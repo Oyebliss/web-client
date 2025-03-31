@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from 'react';
 import { createContainer } from 'unstated-next';
-import { text } from '../../@layout_app/components/auth/auth.helpers';
+import { text } from '@/@layout_app/components/auth/auth.helpers';
 import { login, signUp } from '@/@core/auth';
 import { useRouter } from 'next/navigation';
 import { setTimeout } from 'timers';
-import { checkAuth } from './checkAuth';
+import { checkAuth } from '@/@layout_app/hooks/checkAuth';
 
 function useAuth_Community(intialState: { authType: string } | undefined) {
   const [authType, setLoginText] = useState(intialState?.authType);
@@ -48,7 +48,7 @@ function useAuth_Community(intialState: { authType: string } | undefined) {
         setMessage(response.message);
 
         setTimeout(() => {
-          router.replace('/overview'); // Redirect to App Manager Dashboard after 2secs - will be updated
+          router.replace('/'); // Redirect to App Manager Dashboard after 2secs - will be updated
         }, 3000);
       }
     } catch (error: unknown) {

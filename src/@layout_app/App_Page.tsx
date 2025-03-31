@@ -5,8 +5,8 @@ import { getPage } from '@/@layout_shared/helpers/meta';
 import { appInfo } from '@/@layout_app/helpers/appInfo';
 
 import PageHeadElement from '@/@layout_shared/components/PageHeadElement';
-import { UserContainer_Community } from './hooks/useUser';
-import { AuthContainer_Community } from './hooks/useAuth';
+import { UserContainer_Community } from '@/@layout_app/hooks/useUser';
+import { AuthContainer_Community } from '@/@layout_app/hooks/useAuth';
 
 
 export default function PageStructure_App({ children }: { children: ReactNode }) {
