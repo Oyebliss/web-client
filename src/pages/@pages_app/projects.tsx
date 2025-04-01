@@ -6,19 +6,15 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 const ProjectsPage_App: NextPageWithLayout = () => {
-  const {  user } = UserContainer_Community.useContainer();
   const { isAuthenticated } = AuthContainer_Community.useContainer();
+  const {  user, loading } = UserContainer_Community.useContainer();
   const router = useRouter();
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isAuthenticated) {
-        router.replace('/login');
-      }
-    }, 1000);
-  
-    return () => clearInterval(interval);
-  }, [isAuthenticated, router]);
+    if (!isAuthenticated && !loading) {
+      router.replace('/login');
+    }
+  }, [isAuthenticated, router, loading]);
   
   return (
     <>
