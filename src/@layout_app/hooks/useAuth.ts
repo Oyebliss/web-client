@@ -4,7 +4,6 @@ import { createContainer } from 'unstated-next';
 import { text } from '@/@layout_app/components/auth/auth.helpers';
 import { login, signUp } from '@/@core/auth';
 import { useRouter } from 'next/navigation';
-import { setTimeout } from 'timers';
 import { checkAuth } from '@/@layout_app/hooks/checkAuth';
 
 function useAuth_Community(intialState: { authType: string } | undefined) {
@@ -47,9 +46,7 @@ function useAuth_Community(intialState: { authType: string } | undefined) {
         response = await login(email, password);
         setMessage(response.message);
 
-        setTimeout(() => {
-          router.replace('/'); // Redirect to App Manager Dashboard after 2secs - will be updated
-        }, 3000);
+        router.replace('/');
       }
     } catch (error: unknown) {
       if (error instanceof Error) {
