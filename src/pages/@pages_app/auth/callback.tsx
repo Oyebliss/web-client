@@ -20,7 +20,7 @@ const GoogleCallback = () => {
           localStorage.setItem('user', JSON.stringify(user));
           
           // ✅ Redirect to subdomain
-          router.replace('/overview');
+          router.replace('/');
         }
       } catch (err) {
         console.error('Error parsing authentication response:', err);
