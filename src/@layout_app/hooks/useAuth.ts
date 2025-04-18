@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { createContainer } from 'unstated-next';
 import { text } from '@/@layout_app/components/auth/auth.helpers';
-import { login, signUp } from '@/@core/auth';
+import { login, signInWithGoogle, signUp } from '@/@core/auth';
 import { useRouter } from 'next/navigation';
 import { checkAuth } from '@/@layout_app/hooks/checkAuth';
 
@@ -12,6 +12,7 @@ function useAuth_Community(intialState: { authType: string } | undefined) {
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
   const router = useRouter();
 
   const isLogin = authType === text.login;
@@ -59,6 +60,11 @@ function useAuth_Community(intialState: { authType: string } | undefined) {
     }
   };
 
+  const googleSignIn = () => {
+    setGoogleLoading(true);
+
+    signInWithGoogle();
+  };
 
   return {
     isLogin,
@@ -67,7 +73,9 @@ function useAuth_Community(intialState: { authType: string } | undefined) {
     error,
     message,
     isAuthenticated,
-    handleAuth
+    handleAuth,
+    googleSignIn,
+    googleLoading
   };
 }
 

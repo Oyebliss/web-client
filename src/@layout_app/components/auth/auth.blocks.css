@@ -104,6 +104,21 @@ button.wrap_3_sibling_group.separator-margin_ttb {
     color: green; /*-- For setup purpose. this will change based on success message UI on design -- */
 }
 
+.auth_page {
+    position: relative;
+}
+
+.custom_toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    background-color: #032d23;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 /* ------------- */
 
 @media screen and (min-width: 501px) {
