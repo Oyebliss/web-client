@@ -53,7 +53,7 @@ export default function Auth_Community() {
       {/* Toaster */}
       {(loading || googleLoading) && (
         <div className="custom_toast">
-          {googleLoading ? 'Redirecting to Google...' : 'Processing...'}
+          {`Processing${googleLoading ? ' Google': ''} ${isLogin ? text.login : text.signup}...`}
         </div>
       )}
     </div>
